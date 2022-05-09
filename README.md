@@ -2,7 +2,7 @@
 * [Opis](#opis)
 * [Technologie](#technologie)
 * [Instalacja](#instalacja)
-* [Dokumentacja technicza](#dokumentacja)
+* [Dokumentacja technicza](#dokumentacja-techniczna)
 * [Prezentacja aplikacji](#prezentacja)
 
 ## Opis
@@ -24,7 +24,7 @@ Podczas tworzenia projektu wykorzystano:
 * MaterializeCSS
 * Django-materializecss-forms
 	
-## instalacja
+## Instalacja
 1. Stwórz wirtualne środowisko i doinstaluj zależności z pliku requirements.txt
 2. Aktywuj wirtualne środowisko
 3. Przejdź do katalogu HomeworkCentre i wykonaj następujące polecenia:
@@ -46,7 +46,7 @@ Podczas tworzenia projektu wykorzystano:
 ## Dokumentacja techniczna
 Dokumentacja techniczna znajduje się w katalogu **docs**
 * [Diagram klas](#diagram-klas)
-* [Diagram przypadków użycia] (#diagram-przypadków użycia)
+* [Diagram przypadków użycia](#diagram-przypadków użycia)
 
 ## Diagram klas
 ![Diagram klas](./docs/class-diagram.png)
@@ -54,5 +54,55 @@ Dokumentacja techniczna znajduje się w katalogu **docs**
 ## Diagram przypadków użycia
 ![Diagram klas](./docs/use-case-diagram.png)
 
+## Prezentacja aplikacji
+* [Widok główny](#widok-glowny)
+* [Rejestracja i logowanie](#rejestracja)
+* [Tworzenie nowej klasy](#tworzenie-nowej-klasy)
+* [Tworzenie nowego zadania](#tworzenie-nowego-zadania)
+* [Dodawanie odpowiedzi](#dodawanie-odpowiedzi)
+* [Ocenianie odpowiedzi](#ocenianie-odpowiedzi)
+* [Lista dostępnych zadań](#lista-dostępnych-zadań)
+* [Lista nadesłanych odpowiedzi](#lista-nadesłanych-odpowiedzi)
+* [Szczegóły oceny](#szczegoly-oceny)
+* [Lista klas - student](#lista-klas)
 
+## Widok główny
+* Widok główny - nauczyciel
+![Widok główny - nauczyciel](./docs/home-teacher.png)
+* Widok główny - student
+![Widok główny - student](./docs/home-student.png)
+
+## Rejestracja i logowanie
+* Rejestracja
+![Rejestracja](./docs/registration.png)
+![Aktywacja konta](./docs/registration-confirm.png)
+* Logowanie
+![Logowanie](./docs/login.png)
+
+## Tworzenie nowej klasy
+![Tworzenie nowej klasy](./docs/class-create.png)
+
+## Tworzenie nowego zadania
+![Tworzenie nowego zadania](./docs/homework-create.png)
+
+## Dodawanie odpowiedzi
+![Dodawanie odpowiedzi](./docs/solution-create.png)
+
+## Ocenianie odpowiedzi
+![Ocenianie odpowiedzi](./docs/solution-rate.png)
+
+## Lista dostępnych zadań
+* Nauczyciel
+![Lista zadań - nauczyciel](./docs/homework-list-teacher.png)
+* Student
+![Lista zadań - student](./docs/homework-list.png)
+
+## Lista nadesłanych odpowiedzi
+![Lista odpowiedzi](./docs/solutions-available.png)
+
+## Szczegóły oceny
+![Szczegóły oceny](./docs/rating-details.png)
+
+## Lista klas - student
+![Lista klas - student](./docs/rating-list.png)
 
