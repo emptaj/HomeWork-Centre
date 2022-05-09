@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block title %}ZADANIA{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for member in members|dictsort:"last_name"|dictsortreversed:"first_name" %}
+            <tr>
+                <td>{{member.first_name}}</td>
+                <td>{{member.last_name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

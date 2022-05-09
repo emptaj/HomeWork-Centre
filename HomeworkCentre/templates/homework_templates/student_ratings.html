@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block title %}OCENY{% endblock title %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+</script>
+{% endblock javascript %}
+{% block content %}
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+<div class="container">
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>Zadanie</th>
+                <th>Wystawił/a</th>
+                <th>Data</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for rate in rating_list %}
+            <tr>
+                <td><a class="black-text" href="{{rate.id}}">{{rate.solution.homework}}</a></td>
+                <td>{{rate.rated_by}}</td>
+                <td>{{rate.date_added|date:'d-m-Y H:i'}}</td>
+                <td>{{rate.rating}}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

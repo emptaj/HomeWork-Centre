@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block title %}KLASY{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h1>Klasy, do których możesz dołączyć</h1>
+<div class="row">
+    {% for class in class_list %}
+    <div class="col s6 m4">
+        <div class="card center">
+            <div class="card-image">
+                <i class="large material-icons grey-text text-darken-3">school</i>
+
+                <a class="btn-floating halfway-fab waves-effect waves-light green pulse"
+                    href="{% url 'User:class_join' class.id %}"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content center">
+                <p>{{class.name}}</p>
+                <cite>
+                <p>{{class.description}}</p>
+                </cite>
+                <p>{{class.owner}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,124 @@
+{% extends 'index.html' %}
+
+{% block title %}GŁÓWNA{% endblock title %}
+
+{% block content %}
+<style>
+   .card-panel {
+      height: 250px;
+   }
+
+   /* td {
+      max-width: 33.33%;
+   } */
+
+   /* a {
+      color: black;
+   } */
+</style>
+<div class="container center">
+   <div class="row">
+      <div class="col s12 m6">
+         <div class="card">
+            <div class="card-title">
+               OSTATNIE OCENY
+            </div>
+            <div class="card-action">
+               <table class="striped">
+                  <thead>
+                     <tr>
+                        <th>Zadanie</th>
+                        <th>Ocena</th>
+                        <th>Data</th>
+                        <th>Szczegóły</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for rating in rating_list %}
+                     <tr>
+                        <td>{{rating.solution.homework}}</td>
+                        <td>{{rating.rating}}</td>
+                        <td>{{rating.date_added|date:'d-m-Y H:i'}}</td>
+                        <td><a class="waves-effect green btn-small" href="{% url 'homework:rating' rating.id %}"><i
+                                 class="material-icons center">info_outline</i></a></td>
+                     </tr>
+                     {% endfor %}
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m6">
+         <div class="card">
+            <div class="card-title">
+               OSTATNIE ZADANIA
+            </div>
+            <div class="card-action">
+               <table class="striped">
+                  <thead>
+                     <tr>
+                        <th>Zadanie</th>
+                        <th>Kto</th>
+                        <th>Termin oddania</th>
+                        <th>Oddaj</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for homework in homework_list %}
+                     <tr>
+                        <td>{{homework.title}}</td>
+                        <td>{{homework.teacher}}</td>
+                        <td>{{homework.deadline|date:'d-m-Y H:i'}}</td>
+                        <td><a class="waves-effect green btn-small"
+                              href="{% url 'homework:create_solution' homework.id %}"><i
+                                 class="material-icons center">add</i></a></td>
+                     </tr>
+                     {% endfor %}
+
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col s12 m4">
+         <a href="{% url 'user:classes' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">school</i>
+               <h4>Klasy</h4>
+               <p>Wyświetl wszystkie klasy, do których należysz</p>
+            </div>
+         </a>
+      </div>
+
+      <div class="col s12 m4">
+         <a href="{% url 'homework:ratings' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">stars</i>
+               <h4>Oceny</h4>
+               <p>Wyświetl wszystkie Twoje oceny</p>
+            </div>
+         </a>
+      </div>
+
+      <div class="col s12 m4">
+         <a href="{% url 'homework:homeworks' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">event</i>
+               <h4>Zadania</h4>
+               <p>Wyświetl zadania, na które możesz jeszcze udzielić odpowiedzi</p>
+            </div>
+      </div>
+      </a>
+   </div>
+
+</div>
+
+{% endblock content %}

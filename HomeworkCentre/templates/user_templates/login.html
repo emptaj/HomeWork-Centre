@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load materializecss %}
+{%block title %}
+LOGOWANIE
+{% endblock title %}
+
+
+{% block javascript %}
+
+
+
+{% endblock javascript %}
+
+{% block menu %}
+{% endblock menu %}
+{%block content %}
+
+<div class="row">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+            <div class="card-action light-blue darken-4 hoverable white-text">
+                <h3 class="center">LOGOWANIE</h3>
+            </div>
+            <div class="card-content">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="form-field s12 center">
+                        <a href="{% url 'user:user_register' %}" class="black-text center">Nie masz konta? Zarejestruj się</a>
+                    </div>
+                    <div class="form-field s12">
+                        <button class="btn-large waves-effect light-blue darken-4" style="width:100%;"
+                            type="submit">ZALOGUJ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}OCENY{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>Zadanie</th>
+                <th>Rozwiązanie</th>
+                <th>Kto</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for rate in rating_list %}
+            <tr>
+                <td>{{rate.solution.homework}}</td>
+                <td><a href="{% url 'homework:rating' rate.id %}"><i class="material-icons center green-text">library_books</i></a></td>
+                <td>{{rate.solution.student}}</td>
+                <td>{{rate.rating}}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

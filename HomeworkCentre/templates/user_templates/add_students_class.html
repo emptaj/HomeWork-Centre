@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{%load materializecss %}
+{% load static %}
+
+{% block title %}DODAJ KLASE {% endblock title %}
+{% block css %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+    integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}"> -->
+
+{% endblock css %}
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        // Initialize materialize data picker
+        $('.datepicker').datepicker({
+            'format': 'yyyy-mm-dd',
+            'i18n': {
+                'months': ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+                    "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+                'monthsShort': ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"],
+                'weekdays': ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"],
+                'weekdaysShort': ["Pon", "Wto", "Śro", "Czw", "Pią", "Sob", "Nie"],
+                'weekdaysAbbrev': ["P", "W", "Ś", "C", "Pt", "S", "N"]
+            }
+        });
+        $('.timepicker').timepicker({
+            'twelveHour': false
+        });
+        $('select').formSelect();
+
+    });
+</script>
+{% endblock javascript %}
+
+{%block content %}
+<style>
+    .card {
+        /* -webkit-border-radius: 70px;
+        -moz-border-radius: 70px;
+        border-radius: 70px; */
+        padding: 10px;
+    }
+
+    .waves-effect {
+        width: 100%;
+    }
+</style>
+<div class="container ">
+    <h1>DODAJ KLASĘ</h1>
+    <div class="card">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form|materializecss}}
+            <button type="submit" class="waves-effect green btn">DODAJ</button>
+        </form>
+    </div>
+</div>
+{%endblock content %}

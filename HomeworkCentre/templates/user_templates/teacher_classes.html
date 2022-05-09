@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block title %}KLASY{% endblock title %}
+
+{% block content %}
+<style>
+    .card.white.hoverable {
+        height: 300px;
+    }
+</style>
+<div class="container">
+    <h1>Twoje klasy</h1>
+    <div class="row">
+        {% for class in class_list %}
+        <div class="col s4 center ">
+            <a href="{% url 'user:class_members' class.id %}" class="black-text">
+            <div class="small card white hoverable ">
+                <div class="card-image">
+                    <i class="large material-icons grey-text text-darken-3">school</i>
+
+                </div>
+                <div class="card-content center">
+                    <span class="card-title ">{{class.name}}</span>
+                    <p>{{class.description}}</p>
+                    <p>{{class.owner}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'homework:homeworks_for_class' class.id %}" class="green-text">Zadania</a>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+        <div class="col s4 center ">
+            <div class="small card white hoverable ">
+                <div class="card-image">
+                    <i class="large material-icons grey-text text-darken-3">school</i>
+        
+                </div>
+                <div class="card-content center">
+                    <span class="card-title"><a href="{% url 'user:class_create' %}"><i class="medium material-icons green-text ">add</i></a></span>
+                    <p>Utwórz nową klasę</p>
+                    <p>{{class.owner}}</p>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

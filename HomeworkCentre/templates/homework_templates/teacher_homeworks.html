@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block title %}ZADANIA{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Termin oddania</th>
+                <th>Nadesłano</th>
+                <th>Oceń</th>
+                <th>Ocenione</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for homework in homework_list|dictsort:"title"|dictsortreversed:"deadline" %}
+            <tr>
+                <td>{{homework.title}}</td>
+                <td>{{homework.deadline|date:'d-m-Y H:i'}}</td>
+                <td>{{homework.homework.count}}</td>
+                <td><a href="{% url 'homework:solutions_to_homework' homework.id %}"><i class="material-icons center green-text">create</i></a></td>
+                <td><a href="{% url 'homework:ratings_to_homework' homework.id %}"><i class="material-icons center green-text">check</i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

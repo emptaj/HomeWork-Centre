@@ -1,0 +1,170 @@
+{% extends 'index.html' %}
+
+{% block title %}GŁÓWNA{% endblock title %}
+
+{% block content %}
+<style>
+   .card-panel {
+      height: 250px;
+   }
+
+   /* td {
+   max-width: 33.33%;
+} */
+
+   /* a {
+   color: black;
+} */
+
+   table {
+      table-layout: fixed;
+   }
+
+   /* td {
+      width: 33.33%;
+   } */
+</style>
+<div class="container center">
+   <div class="row">
+      <div class="col s12 m4">
+         <div class="card">
+            <div class="card-title">
+               OSTATNIE ODPOWIEDZI
+            </div>
+            <div class="card-action">
+               <table class="striped">
+                  <thead>
+                     <tr>
+                        <th>Zadanie</th>
+                        <th>Uczeń</th>
+                        <!-- <th>Data</th> -->
+                        <th>Oceń</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for solution in solution_list %}
+                     <tr>
+                        <td><span class="truncate">{{solution.homework.title}}</span></td>
+                        <td>{{solution.student}}</td>
+                        <!-- <td>{{solution.date_added|date:'d-m-Y H:i'}}</td> -->
+                        <td><a class="waves-effect green btn-small"
+                              href="{% url 'homework:rating_create' solution.id %}"><i
+                                 class="material-icons center">create</i></a></td>
+                     </tr>
+                     {% endfor %}
+
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m4">
+         <div class="card">
+            <div class="card-title">
+               OSTATNIE OCENY
+            </div>
+            <div class="card-action">
+               <table class="striped responsive">
+                  <thead>
+                     <tr>
+                        <th>Zadanie</th>
+                        <th>Uczeń</th>
+                        <th>Ocena</th>
+                        <th>Szczegóły</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for rating in rating_list %}
+                     <tr>
+                        <td> <span class="truncate">{{rating.solution.homework}}</span></td>
+                        <td>{{rating.solution.student}}</td>
+                        <td>{{rating.rating}}</td>
+                        <td><a class="waves-effect green btn-small" href="{%url 'homework:rating' rating.id %}"><i
+                                 class="material-icons center">info_outline</i></a></td>
+                     </tr>
+                     {% endfor %}
+
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m4">
+         <div class="card">
+            <div class="card-title">
+               OSTATNIE ZADANIA
+            </div>
+            <div class="card-action">
+               <table class="striped">
+                  <thead>
+                     <tr>
+                        <th>Zadanie</th>
+                        <th>Termin</th>
+                        <th>Odp.</th>
+                        <th>Oceny</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for homework in homework_list %}
+                     <tr>
+                        <td><span class="truncate">{{homework.title}}</span></td>
+                        <td>{{homework.deadline|date:'d-m-Y H:i'}}</td>
+                        <td><a class="waves-effect green btn-small"
+                              href="{% url 'homework:solutions_to_homework' homework.id %}"><i
+                                 class="material-icons center">library_books</i></a></td>
+                        <td><a class="waves-effect green btn-small"
+                              href="{% url 'homework:ratings_to_homework' homework.id %}"><i
+                                 class="material-icons center">check</i></a></td>
+                     </tr>
+                     {% endfor %}
+
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col s12 m4">
+         <a href="{% url 'user:classes' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">school</i>
+               <h4>Klasy</h4>
+               <p>Wyświetl wszystkie klasy, które należą do Ciebie</p>
+            </div>
+         </a>
+      </div>
+
+      <div class="col s12 m4">
+         <a href="{% url 'homework:solutions' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">task</i>
+               <h4>Odpowiedzi</h4>
+               <p>Wyświetl wszystkie nieocenione odpowiedzi do Twoich zadań</p>
+            </div>
+         </a>
+      </div>
+
+      <div class="col s12 m4">
+         <a href="{% url 'homework:homeworks' %}" class="grey-text text-darken-3">
+            <div class="card-panel hoverable">
+               <i class="material-icons large grey-text text-darken-3">event</i>
+               <h4>Zadania</h4>
+               <p>Wyświetl zadania, których jesteś autorem</p>
+            </div>
+      </div>
+      </a>
+   </div>
+
+</div>
+
+{% endblock content %}

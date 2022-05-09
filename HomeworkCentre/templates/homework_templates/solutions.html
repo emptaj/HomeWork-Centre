@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}ODPOWIEDZI{% endblock title %}
+
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
+
+{% endblock javascript %}
+
+{%block content %}
+<style>
+    .collection {
+        border: 1px grey solid;
+    }
+    
+</style>
+
+<div class="container ">
+
+    <h1>Rozwiązania</h1>
+    <div class="row">
+        {% regroup solution_list by homework as homework_groups %}
+
+        {% for homework_group in homework_groups %}
+        <div class="righ-align col s12">
+            <ul class="collection with-header ">
+                <li class="collection-header">
+                    <h5>{{ homework_group.grouper }}
+                        {% for class in homework_group.grouper.students.all %}
+                        <span class="badge light-blue darken-4 white-text">{{class.name}}</span>
+                        {% endfor %}
+                    </h5>
+                </li>
+                {% for solution in homework_group.list|dictsort:"date_added" %}
+                <li class="collection-item">
+                    <div>{{solution.student}} {{solution.date_added|date:'d-m-Y H:i'}}<a
+                            class="right btn-floating btn-small light-green darken-4 pulse"
+                            href="{% url 'Homework:rating_create' solution.id %}"><i class="material-icons">edit</i></a>
+                    </div>
+                </li>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+        {% endfor%}
+    </div>
+
+
+
+
+</div>
+{%endblock content %}

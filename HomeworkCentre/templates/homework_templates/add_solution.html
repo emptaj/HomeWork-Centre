@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}DODAJ ODPOWIEDZ{% endblock title %}
+{% block css %}
+{%load materializecss %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+    integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+{% endblock css %}
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+{% endblock javascript %}
+
+{%block content %}
+<style>
+    div.card.form {
+        padding-top: 10px;
+        padding-left: 10px;
+        -webkit-border-bottom-right-radius: 85px;
+        -moz-border-radius-bottomright: 85px;
+        border-bottom-right-radius: 85px;
+    }
+
+    div.card {
+        /* border: 1px grey solid; */
+    }
+
+    div.card.homework {
+        -webkit-border-top-left-radius: 85px;
+        -moz-border-radius-topleft: 85px;
+        border-top-left-radius: 85px;
+    }
+
+    .btn {
+        background-color: #01579b;
+        width: 20%;
+        
+    }
+
+    button[type="submit"] {
+        width: 96%;
+        border-bottom-right-radius: 70px;
+        
+    }
+
+</style>
+<div class="container ">
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card homework">
+                <div class="card-content">
+                    <span class="card-title">{{title}}</span>
+                    <blockquote>
+                        <p>{{desc}}</p>
+                    </blockquote>
+                </div>
+                <div class="card-action">
+                    {% for format in title.available_formats %}
+                    <a class="blue-text">{{format}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|materializecss}}
+            <!-- {{form.description|materializecss}}
+        {{form.homework_file|materializecss}} -->
+            <button type="submit" class="waves-effect green btn">DODAJ</button>
+        </form>
+    </div>
+</div>
+{%endblock content %}

@@ -1,0 +1,40 @@
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+        $(".dropdown-trigger").dropdown();
+    });
+
+
+</script>
+
+
+<div class="navbar-fixed">
+
+    <nav>
+        <div class="nav-wrapper light-blue darken-4">
+            <a href="{% url 'user:home' %}" class="brand-logo"><i
+                    class="material-icons left">business_center</i>HomeworkCentre</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'homework:homeworks' %}"><i class="material-icons left">event</i>ZADANIA</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" href="badges.html"><i
+                            class="material-icons left">school</i>KLASY</a></li>
+                <li><a href="{% url 'homework:ratings' %}"><i class="material-icons left">grade</i>OCENY</a></li>
+                <li><a href="{% url 'user:user_logout' %}"><i class="material-icons left">close</i>Wyloguj</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{% url 'homework:homeworks' %}">Zadania</a></li>
+    <li><a href="{% url 'user:classes' %}">Klasy</a></li>
+    <li><a href="{% url 'homework:ratings' %}">Oceny</a></li>
+</ul>
+
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="{% url 'user:classes' %}">Twoje</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'user:classes_available' %}">Dołącz</a></li>
+
+</ul>

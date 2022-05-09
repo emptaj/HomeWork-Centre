@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block title %}ZADANIA{% endblock title %}
+
+{% block content %}
+<style>
+    .card.center {
+        height: 250px;
+    }
+</style>
+
+<div class="container">
+    <h1 class="spadaj">Twoje zadania</h1>
+    <div class="row">
+        {% for homework in homework_list|dictsort:"deadline" %}
+        <div class="col s6 m4">
+            <div class="card center hoverable">
+                <div class="card-image">
+                    <i class="large material-icons">event_available</i>
+                </div>
+                <div class="card-content ">
+                    <p>{{homework}}</p>
+                    <cite>
+                        <p class="truncate">{{homework.description}}</p>
+                        <p>Termin: {{homework.deadline|date:'d-m-Y H:i'}}</p>
+                    </cite>
+                    <a class="btn-floating btn-medium waves-effect waves-light green pulse"
+                        href="{% url 'homework:create_solution' homework.id %}"><i
+                            class="material-icons">forward</i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

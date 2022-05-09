@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block title %}OCENY{% endblock title %}
+
+{% block content %}
+siema
+<table>
+    {% for rating in rating_list %}
+    <p>{{rating}}</p>
+    {% endfor %}
+</table>
+{% endblock content %}

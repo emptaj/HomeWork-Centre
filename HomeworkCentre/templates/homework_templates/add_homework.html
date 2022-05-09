@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}DODAJ ZADANIE {% endblock title %}
+{% block css %}
+{%load materializecss %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+    integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}"> -->
+{% endblock css %}
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        // Initialize materialize data picker
+        $('.datepicker').datepicker({
+            'format': 'yyyy-mm-dd',
+            'i18n': {
+                'months': ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+                    "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+                'monthsShort': ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"],
+                'weekdays': ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"],
+                'weekdaysShort': ["Pon", "Wto", "Śro", "Czw", "Pią", "Sob", "Nie"],
+                'weekdaysAbbrev': ["P", "W", "Ś", "C", "Pt", "S", "N"]
+            }
+        });
+        $('.timepicker').timepicker({
+            'twelveHour': false
+        });
+        $('select').formSelect();
+
+    });
+</script>
+{% endblock javascript %}
+
+{%block content %}
+<style>
+    div.card.title {
+        -webkit-border-top-left-radius: 85px;
+        -moz-border-radius-topleft: 85px;
+        border-top-left-radius: 85px;
+        padding-left: 30px;
+    }
+
+    div.card.main {
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        padding-left: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: red;
+
+    }
+
+    div.card {
+        border: 1px grey solid;
+        
+    }
+
+    div.card.date {
+        -webkit-border-bottom-right-radius: 85px;
+        -moz-border-radius-bottomright: 85px;
+        border-bottom-right-radius: 85px;
+        padding-left: 30px;
+        padding-top: 10px;
+        
+    }
+
+    .input-field label {
+        color: #000;
+    }
+
+    div.col.s12 ul label {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    <h1>DODAJ ZADANIE</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="card title">
+            {{ form.title|materializecss:'icon=create' }}
+            {{ form.description|materializecss:'icon=subtitles' }}
+            {{ form.students|materializecss:'icon=school'}}
+        </div>
+        <div class="card main">
+            {{ form.available_formats|materializecss }}
+        </div>
+        <div class="card date">
+            <i class="material-icons">access_alarms</i> {{ form.temp_deadline }}
+        </div>
+        <button type="submit" class="waves-effect waves-light btn">DODAJ</button>
+    </form>
+</div>
+
+{%endblock content %}

@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}OCEŃ ODPOWIEDŹ {% endblock title %}
+{% block css %}
+
+{%load materializecss %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+    integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}"> -->
+{% endblock css %}
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        // Initialize materialize data picker
+
+        $('select').formSelect();
+
+    });
+</script>
+
+{% endblock javascript %}
+
+{%block content %}
+<style>
+    .card {
+        -webkit-border-bottom-right-radius: 85px;
+        -moz-border-radius-bottomright: 85px;
+        border-bottom-right-radius: 85px;
+        padding-top: 10px;
+    }
+
+    .card.horizontal {
+        -webkit-border-top-left-radius: 70px;
+        -moz-border-radius-topleft: 70px;
+        border-top-left-radius: 70px;
+
+        -webkit-border-bottom-right-radius: 0px;
+        -moz-border-radius-bottomright: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .btn{
+        width: 96%;
+        border-bottom-right-radius: 70px;
+    }
+</style>
+<div class="container ">
+    <h1>OCEŃ ODPOWIEDŹ</h1>
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>{{solution_to_rate.homework}}</p>
+                </div>
+                <div class="card-action">
+                    <p>Uczeń: {{solution_to_rate.student}}</p>
+                    Odpowiedź:
+                    <blockquote>
+                        {{solution_to_rate.description|linebreaks}}
+                    </blockquote>
+                </div>
+                {% if solution_to_rate.homework_file %}
+                <div class="card-action">
+                    <a href="{{solution_to_rate.homework_file.url}}" target="new">Załącznik</a>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.rating|materializecss:'icon=star'}}
+            {{ form.feedback|materializecss:'icon=rate_review' }}
+            <button type="submit" class="waves-effect green btn"><i class="material-icons ">check</i></button>
+        </form>
+    </div>
+</div>
+{%endblock content %}
