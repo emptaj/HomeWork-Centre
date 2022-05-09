@@ -2,6 +2,8 @@
 * [Opis](#opis)
 * [Technologie](#technologie)
 * [Instalacja](#instalacja)
+* [Dokumentacja technicza] (#dokumentacja)
+* [Prezentacja aplikacji] (#prezentacja)
 
 ## Opis
 Oprócz podstawowej funkcjonalności, jaką jest wymiana zadań pomiędzy nauczycielem a uczniem, w aplikacji zaimplementowano system ocen. 
@@ -23,8 +25,6 @@ Podczas tworzenia projektu wykorzystano:
 * Django-materializecss-forms
 	
 ## instalacja
-
-
 1. Stwórz wirtualne środowisko i doinstaluj zależności z pliku requirements.txt
 2. Aktywuj wirtualne środowisko
 3. Przejdź do katalogu HomeworkCentre i wykonaj następujące polecenia:
@@ -43,6 +43,16 @@ Podczas tworzenia projektu wykorzystano:
 
 **UWAGA! Kroki 1-5 należy wykonać tylko raz, podczas pierwszego uruchomienia aplikacji.**
 
+## Dokumentacja techniczna
+Dokumentacja techniczna znajduje się w katalogu **docs**
+* [Diagram klas](#diagram-klas)
+* [Diagram przypadków użycia] (#diagram-przypadków użycia)
+
+## Diagram klas
+![Diagram klas](./docs/class-diagram.jpg)
+
+## Diagram przypadków użycia
+![Diagram klas](./docs/use-case-diagram.jpg)
 
 
 
