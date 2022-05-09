@@ -1,7 +1,7 @@
-## Table of contents
+## Spis treści
 * [Opis](#opis)
 * [Technologie](#technologie)
-* [instalacja](#instalacja)
+* [Instalacja](#instalacja)
 
 ## Opis
 Oprócz podstawowej funkcjonalności, jaką jest wymiana zadań pomiędzy nauczycielem a uczniem, w aplikacji zaimplementowano system ocen. 
@@ -25,14 +25,26 @@ Podczas tworzenia projektu wykorzystano:
 ## instalacja
 
 
-```
 1. Stwórz wirtualne środowisko i doinstaluj zależności z pliku requirements.txt
 2. Aktywuj wirtualne środowisko
 3. Przejdź do katalogu HomeworkCentre i wykonaj następujące polecenia:
-	3.1: python manage.py makemigrations
-	3.2: python manage.py migrate
-	3.3: python manage.py create_groups
-4. Stwórz administratora systemu poleceniem python manage.py createsuperuser. Postępuj zgodnie z wyświetlaną instrukcją
+	3.1: 
+```python manage.py makemigrations
+
+```
+	3.2: 
+```python manage.py migrate
+
+```
+	3.3: 
+	
+```python manage.py create_groups
+
+```
+4. Stwórz administratora systemu poleceniem 
+```python manage.py createsuperuser
+```
+Postępuj zgodnie z wyświetlaną instrukcją
 
 ------------------------------------------------------------------------------------------------------------------------
 							OPCJONALNE
@@ -44,7 +56,6 @@ Podczas tworzenia projektu wykorzystano:
 6. Uruchom serwer poleceniem python manage.py runserver z katalogu HomeworkCentre
 
 UWAGA! Kroki 1-5 należy wykonać tylko raz, podczas pierwszego uruchomienia aplikacji.
-```
 
 
 
