@@ -68,15 +68,19 @@ Dokumentacja techniczna znajduje się w katalogu **docs**
 
 ## Widok główny
 * Widok główny - nauczyciel
+
 ![Widok główny - nauczyciel](./docs/home-teacher.png)
 * Widok główny - student
+
 ![Widok główny - student](./docs/home-student.png)
 
 ## Rejestracja i logowanie
 * Rejestracja
+
 ![Rejestracja](./docs/registration.png)
 ![Aktywacja konta](./docs/registration-confirm.png)
 * Logowanie
+
 ![Logowanie](./docs/login.png)
 
 ## Tworzenie nowej klasy
@@ -104,5 +108,5 @@ Dokumentacja techniczna znajduje się w katalogu **docs**
 ![Szczegóły oceny](./docs/rating-details.png)
 
 ## Lista klas - student
-![Lista klas - student](./docs/rating-list.png)
+![Lista klas - student](./docs/class-available.png)
 
