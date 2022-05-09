@@ -4,13 +4,23 @@
 * [instalacja](#instalacja)
 
 ## Opis
-This project is simple Lorem ipsum dolor generator.
+Oprócz podstawowej funkcjonalności, jaką jest wymiana zadań pomiędzy nauczycielem a uczniem, w aplikacji zaimplementowano system ocen. 
+* Nauczyciel oceniając konkretną odpowiedź, wystawia ocenę i ewentualny komentarz. 
+* Aby ułatwić tworzenie zadań, wprowadzono model klas, do którego przypisywani są uczniowie związani z konkretnym przedmiotem. 
+* Uczniowie dołączają do klas, które tworzone są przez konkretnego nauczyciela.
+* Główną ideą przesyłania odpowiedzi jest opcjonalne dodanie załączników, ale odpowiedzi można umieszczać również w przygotowanym do tego polu w formularzu. 
+* Podczas dodawania nowego zadania, nauczyciel zobowiązany jest do podania terminu oddania, w związku z czym wprowadzono system powiadomień e-mail, aby poinformować ucznia o nowym zadaniu.
+* Podobnie dzieje się w przypadku otrzymania oceny. 
+* Wszelkie operacje wymagają stworzenia konta w serwisie i akceptacji przez administratora. 
+* Aby poprawić kwestie bezpieczeństwa, administrator systemu weryfikuje czy osoba jest tym, za kogo się podaje. Jeżeli informacje podane podczas tworzenia konta są prawdziwe, konto zostanie aktywowane.
 	
 ## Technologie
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+Podczas tworzenia projektu wykorzystano:
+* Python
+* Django
+* Django signals
+* MaterializeCSS
+* Django-materializecss-forms
 	
 ## instalacja
 
