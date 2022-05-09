@@ -46,7 +46,7 @@ Podczas tworzenia projektu wykorzystano:
 ## Dokumentacja techniczna
 Dokumentacja techniczna znajduje się w katalogu **docs**
 * [Diagram klas](#diagram-klas)
-* [Diagram przypadków użycia](#diagram-przypadków)
+* [Diagram przypadków użycia](#diagram-przypadków-użycia)
 
 ## Diagram klas
 ![Diagram klas](./docs/class-diagram.png)
