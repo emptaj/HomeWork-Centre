@@ -56,14 +56,14 @@ Dokumentacja techniczna znajduje się w katalogu **docs**
 
 ## Prezentacja aplikacji
 * [Widok główny](#widok-glowny)
-* [Rejestracja i logowanie](#rejestracja)
+* [Rejestracja i logowanie](#rejestracja-i-logowanie)
 * [Tworzenie nowej klasy](#tworzenie-nowej-klasy)
 * [Tworzenie nowego zadania](#tworzenie-nowego-zadania)
 * [Dodawanie odpowiedzi](#dodawanie-odpowiedzi)
 * [Ocenianie odpowiedzi](#ocenianie-odpowiedzi)
 * [Lista dostępnych zadań](#lista-dostępnych-zadań)
 * [Lista nadesłanych odpowiedzi](#lista-nadesłanych-odpowiedzi)
-* [Szczegóły oceny](#szczegoly-oceny)
+* [Szczegóły oceny](#szczegóły-oceny)
 * [Lista klas - student](#lista-klas)
 
 ## Widok główny
