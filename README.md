@@ -2,8 +2,8 @@
 * [Opis](#opis)
 * [Technologie](#technologie)
 * [Instalacja](#instalacja)
-* [Dokumentacja technicza] (#dokumentacja)
-* [Prezentacja aplikacji] (#prezentacja)
+* [Dokumentacja technicza](#dokumentacja)
+* [Prezentacja aplikacji](#prezentacja)
 
 ## Opis
 Oprócz podstawowej funkcjonalności, jaką jest wymiana zadań pomiędzy nauczycielem a uczniem, w aplikacji zaimplementowano system ocen. 
@@ -49,10 +49,10 @@ Dokumentacja techniczna znajduje się w katalogu **docs**
 * [Diagram przypadków użycia] (#diagram-przypadków użycia)
 
 ## Diagram klas
-![Diagram klas](./docs/class-diagram.jpg)
+![Diagram klas](./docs/class-diagram.png)
 
 ## Diagram przypadków użycia
-![Diagram klas](./docs/use-case-diagram.jpg)
+![Diagram klas](./docs/use-case-diagram.png)
 
 
 
